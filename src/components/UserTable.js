@@ -14,7 +14,7 @@ export default function UserTable({ userData }) {
             <tbody>
                 {userData.users.map(user => {
                     return (
-                        <tr>
+                        <tr key={user.email}>
                             <th scope="row">{user.id}</th>
                             <td>{user.name}</td>
                             <td>{user.email}</td>

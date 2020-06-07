@@ -2,8 +2,19 @@ import React, { useEffect } from 'react'
 import '../styles/Sidenav.css'
 import $ from 'jquery'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Sidenav({ setCurrentNav }) {
+function Sidenav({ setCurrentNav, setIsLoggedIn }) {
+
+    toast.configure()
+
+    const logout = () => {
+        setIsLoggedIn(false)
+        toast.success('Logged Out', {
+            position: toast.POSITION.BOTTOM_RIGHT
+        });
+    }
 
     useEffect(() => {
         $(document).ready(function () {
@@ -61,6 +72,13 @@ function Sidenav({ setCurrentNav }) {
                 <li>
                     <Link to='/' aria-expanded="false">
                         <i className="fa fa-gear mr-2" aria-hidden="true" style={{ color: 'orange' }}></i>Settings
+                    </Link>
+                </li>
+                <hr className='my-0'></hr>
+                <li>
+                    <Link to='/' onClick={logout}>
+                        <i className="fa fa-sign-out mr-2" aria-hidden='true'></i>
+                        Logout
                     </Link>
                 </li>
             </ul>

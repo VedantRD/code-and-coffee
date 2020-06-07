@@ -38,11 +38,11 @@ export default function Dashboard({ setIsLoggedIn }) {
         <div className="wrapper">
 
             {/* ---- sidenav---- */}
-            <Sidenav setCurrentNav={setCurrentNav}></Sidenav>
+            <Sidenav setCurrentNav={setCurrentNav} setIsLoggedIn={setIsLoggedIn}></Sidenav>
 
             <div id="content" className='w-100'>
                 {/* ---- Navbar ---- */}
-                <Navbar setIsLoggedIn={setIsLoggedIn}></Navbar>
+                <Navbar></Navbar>
 
                 {/* --- Main Content --- */}
                 <div className='container pt-5 main-content'>
